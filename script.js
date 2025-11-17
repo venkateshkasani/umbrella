@@ -1,3 +1,4 @@
+// variables for state management
 const fileInput = document.getElementById("fileInput");
 const submitBtn = document.getElementById("submit-button");
 const uploadIcon = document.getElementById("upload-icon");
@@ -9,6 +10,9 @@ const yellowLayer = document.getElementById("yellow-layer");
 const btnLoader = document.getElementById("btn-loader");
 const loader = document.getElementById("main-loader");
 const umbrellaImage = document.getElementById("umb-image");
+// EVENT LISTENERS
+
+// file input listener
 function handleFileInput(e) {
   const p = document.getElementById("upload_text");
   if (e.target.files[0]) {
@@ -22,6 +26,7 @@ function handleFileInput(e) {
     uploadIcon.style.display = "none";
     btnLoader.style.display = "flex";
     brandIcon.style.display = "none";
+    // reset after 5 seconds
     setTimeout(() => {
       umbrellaImage.style.display = "block";
       loader.style.display = "none";
@@ -30,47 +35,53 @@ function handleFileInput(e) {
       brandIcon.style.display = "block";
     },5000)
   }
-  console.log("triggered");
 }
 
 pinkLayer.addEventListener("click", function (e) {
   document.getElementById("container").style.backgroundColor = "#edc2cf89"
   document.getElementById("umb-image").src = "images/pink_umbrella.png"
   submitBtn.style.backgroundColor = "#D72C87";
-  // for 5 seconds and reset
+  // for few seconds and reset
   umbrellaImage.style.display = "none";
   loader.style.display = "block";
   loader.style.stroke = "#D72C87";
   uploadIcon.style.display = "none";
   btnLoader.style.display = "flex";
   brandIcon.style.display = "none";
+  const fileUploaded = document.getElementById("upload_text").textContent;
+  // reset after few seconds
   setTimeout(() => {
     umbrellaImage.style.display = "block";
     loader.style.display = "none";
     uploadIcon.style.display = "block";
     btnLoader.style.display = "none";
     brandIcon.style.display = "block";
-  }, 5000);
+  }, fileUploaded === "UPLOAD LOGO" ? 300 : 5000);
 })
 
 blueLayer.addEventListener("click", function (e) {
   document.getElementById("container").style.backgroundColor = "#a9d0f589";
   document.getElementById("umb-image").src = "images/blue_umbrella.png";
   submitBtn.style.backgroundColor = "#29B1E5";
-  // for 5 seconds and reset
+  // for few seconds and reset
   umbrellaImage.style.display = "none";
   loader.style.display = "block";
   loader.style.stroke = "#29B1E5";
   uploadIcon.style.display = "none";
   btnLoader.style.display = "flex";
   brandIcon.style.display = "none";
-  setTimeout(() => {
-    umbrellaImage.style.display = "block";
-    loader.style.display = "none";
-    uploadIcon.style.display = "block";
-    btnLoader.style.display = "none";
-    brandIcon.style.display = "block";
-  }, 5000);
+  const fileUploaded = document.getElementById("upload_text").textContent;
+  // reset after few seconds
+  setTimeout(
+    () => {
+      umbrellaImage.style.display = "block";
+      loader.style.display = "none";
+      uploadIcon.style.display = "block";
+      btnLoader.style.display = "none";
+      brandIcon.style.display = "block";
+    },
+    fileUploaded === "UPLOAD LOGO" ? 300 : 5000
+  );
 })
 
 yellowLayer.addEventListener("click", function (e) {
@@ -84,13 +95,18 @@ yellowLayer.addEventListener("click", function (e) {
   uploadIcon.style.display = "none";
   btnLoader.style.display = "flex";
   brandIcon.style.display = "none";
-  setTimeout(() => {
-    umbrellaImage.style.display = "block";
-    loader.style.display = "none";
-    uploadIcon.style.display = "block";
-    btnLoader.style.display = "none";
-    brandIcon.style.display = "block";
-  }, 5000);
+  const fileUploaded = document.getElementById("upload_text").textContent;
+  // reset after few seconds
+  setTimeout(
+    () => {
+      umbrellaImage.style.display = "block";
+      loader.style.display = "none";
+      uploadIcon.style.display = "block";
+      btnLoader.style.display = "none";
+      brandIcon.style.display = "block";
+    },
+    fileUploaded === "UPLOAD LOGO" ? 300 : 5000
+  );
 })
 
 document
@@ -107,10 +123,8 @@ document
 
 // CLICK LOGIC
 submitBtn.addEventListener("click", function (e) {
-  // If clicking the X → do nothing
-  console.log("triggered btn");
+  // If user clicks on the X icon, do nothing
   if (e.target.closest("#remove-button")) return;
-
-  // Otherwise → open file dialog
+  // Otherwise open file dialog
   fileInput.click();
 });
