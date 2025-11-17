@@ -117,7 +117,9 @@ document
     document.getElementById("upload_text").textContent = "UPLOAD LOGO";
     brandIcon.src = "";
     brandIcon.style.visibility = "hidden";
-    btnLoader.style.visibility = "hidden";
+    if (btnLoader.style.display === "flex") {
+      btnLoader.style.display = "none";
+    }
     removeBtn.style.visibility = "hidden";
   });
 
