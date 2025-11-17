@@ -197,6 +197,7 @@ p  {
     animation: spin 3s ease-in-out infinite;
     height: 150px;
     width: 150px;
+    stroke: #29B1E5;
 }
 
 /* animations */

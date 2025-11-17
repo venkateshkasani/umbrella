@@ -40,6 +40,7 @@ pinkLayer.addEventListener("click", function (e) {
   // for 5 seconds and reset
   umbrellaImage.style.display = "none";
   loader.style.display = "block";
+  loader.style.stroke = "#D72C87";
   uploadIcon.style.display = "none";
   btnLoader.style.display = "flex";
   brandIcon.style.display = "none";
@@ -59,6 +60,7 @@ blueLayer.addEventListener("click", function (e) {
   // for 5 seconds and reset
   umbrellaImage.style.display = "none";
   loader.style.display = "block";
+  loader.style.stroke = "#29B1E5";
   uploadIcon.style.display = "none";
   btnLoader.style.display = "flex";
   brandIcon.style.display = "none";
@@ -78,6 +80,7 @@ yellowLayer.addEventListener("click", function (e) {
   // for 5 seconds and reset
   umbrellaImage.style.display = "none";
   loader.style.display = "block";
+  loader.style.stroke = "#FDD143";
   uploadIcon.style.display = "none";
   btnLoader.style.display = "flex";
   brandIcon.style.display = "none";
